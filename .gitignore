@@ -1,2 +1,5 @@
 # Ignore VS Code configuration files
 .vscode/
+
+# Ignore JetBrains .idea files
+.idea/

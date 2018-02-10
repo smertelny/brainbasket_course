@@ -1,6 +1,8 @@
-'use strict'
+"use strict"
 
-document.getElementById("buy_prodcut").addEventListener('click', function () {
-    alert("Congradulations! You bought this product!\n" + 
+document.getElementById("product__buy").addEventListener("click", function () {
+    var quantity = document.getElementById("product__quantity").value;
+    alert("Congradulations! You bought number of product!\n" +
+    "Quantity: " + quantity + "\n" + 
     "P.S. Not really, this is just dummy script");
 });

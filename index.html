@@ -9,6 +9,32 @@
   <title>My super Product</title>
 </head>
 <body>
+  <nav class="main-menu">
+    <ul class="left">
+      <li class="brand"><a href="#">MyAwesomeShop</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">Dumb link</a></li>
+      <li class="dropdown_btn"><a href="#">Dumb link</a>
+        <div class="dropdown">
+          <ul>
+            <li><a href="#">Dropdown dumb link</a></li>
+            <li><a href="#">Dropdown dumb link</a></li>
+            <li><a href="#">Dropdown dumb link</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="dropdown_btn"><a href="#">Dumb link</a>
+        <div class="dropdown">
+            <ul>
+              <li><a href="#">Dropdown dumb link</a></li>
+              <li><a href="#">Dropdown dumb link</a></li>
+              <li><a href="#">Dropdown dumb link</a></li>
+            </ul>
+          </div>
+      </li>
+    </ul>
+  </nav>
   <div class="wrapper">
     <div class="product">
       <h1 class="product__name">My super Product</h1>
@@ -43,14 +69,14 @@
           </ul>
           <br />
           <p><b>Price:</b> ???? $</p>
-          <label for="quantity"><b>Quantity: </b></label>
-          <select name="quantity">
+          <label for="product__quantity"><b>Quantity: </b></label>
+          <select id="product__quantity" name="quantity">
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>...</option>
           </select>
-          <button id="buy_prodcut">Buy it now!</button>
+          <button id="product__buy" class="product__buy">Buy it now!</button>
           <div class="product__reviews">
             <a href="./reviews.html">Show Reviews</a>
           </div>
