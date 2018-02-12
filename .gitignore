@@ -3,3 +3,6 @@
 
 # Ignore JetBrains .idea files
 .idea/
+
+# Ignore Node files
+node_modules/
