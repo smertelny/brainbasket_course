@@ -8,21 +8,16 @@ export default class Product extends Component {
     constructor() {
         super();
         this.state = {
-            data:{
-                details:[]
-            },
-            reviews: [],
+            reviews: null,
             showReviews: false
         }
-        this.handleBuyClick = this.handleBuyClick.bind(this);
-        this.handleReviewsClick = this.handleReviewsClick.bind(this);
     }
 
     handleReviewsClick(e) {
         e.preventDefault();
         this.setState({loadingReviews: true})
         if (this.state.showReviews) {
-            this.setState({reviews: [], showReviews: false, loadingReviews: false});
+            this.setState({reviews: null, showReviews: false, loadingReviews: false});
 
         } else {
             getReviews('/reviews/1').then( response => 
@@ -37,13 +32,13 @@ export default class Product extends Component {
         );
     }
 
-    componentDidMount() {
-        this.setState({data: this.props.data})
-    }
-
     render() {
-        let { data, reviews } = this.state;
-        
+        if (!this.props.data) {
+            return <h1 style={{textAlign: "center"}}>There is no such product</h1>
+        }
+
+        let { data } = this.props;
+
         return (
             <div className="product">
                 <h1 className="product__name">{ data.name }</h1>
@@ -68,15 +63,15 @@ export default class Product extends Component {
                             <option>3</option>
                             <option>...</option>
                         </select>
-                        <button onClick={ this.handleBuyClick } id="product__buy" className="product__buy">Buy it now!</button>
+                        <button onClick={ () => this.handleBuyClick() } id="product__buy" className="product__buy">Buy it now!</button>
                         <div className="product__reviews-btn">
-                            <a onClick={ this.handleReviewsClick } href="#">Show Reviews</a>
-                            { this.state.loadingReviews ? <img className="animation" style={{ marginLeft: "10px",width: "25px"}} src="./dist/img/reload.svg" alt="Loading..." /> : null }
+                            <a onClick={ (e) => this.handleReviewsClick(e) } href="#">Show Reviews</a>
+                            { this.state.loadingReviews ? <img className="animation" style={{ marginLeft: "10px",width: "25px"}} src="./static/img/reload.svg" alt="Loading..." /> : null }
                         </div>
                     </div>
                    
                 </div>
-                { reviews ? <Reviews data={reviews} /> : null }
+                { this.state.reviews ? <Reviews data={this.state.reviews} /> : null }
             </div>
         )
     }

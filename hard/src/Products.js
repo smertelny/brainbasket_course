@@ -7,19 +7,24 @@ export default class Products extends Component {
     constructor() {
         super();
         this.state = {
+            isLoading: false,
             products: []
         }
     }
 
     componentDidMount(){
+        this.setState({isLoading: true});
         getProducts('/products').then( response => 
-            this.setState({products: response })
+            this.setState({products: response, isLoading: false })
         );
     }
 
     render() {
-        if (this.state.products.length === 0){
-            return <div className="animate"><img className="animation" src="./dist/img/reload.svg" alt="Loading..." /></div>
+        if (this.state.isLoading) {
+            return <div className="animate"><img className="animation" src="./static/img/reload.svg" alt="Loading..." /></div>
+        }
+        if (!this.state.isLoading && this.state.products.length === 0) {
+            return <h1 style={{textAlign: "center"}}>There is no products here</h1>
         }
         return (
             this.state.products.map( (prod, index) => <Product key={index} data={prod} />)

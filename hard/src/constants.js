@@ -1,7 +1,7 @@
 export const PRODUCTS = [
     {
         name: "My super Product",
-        image: "./dist/img/placeholder.png",
+        image: "./static/img/placeholder.png",
         description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         In posuere lorem et metus ultricies, non auctor metus vehicula. 
         Praesent ultrices ultrices feugiat. Cras quis ante orci. 
@@ -25,7 +25,7 @@ export const PRODUCTS = [
         currency: "USD",
         reviews_url: "./reviews.html"
     }
-]
+];
 
 export const REVIEWS = [
     {
@@ -52,4 +52,4 @@ export const REVIEWS = [
         username: "Reviewer #6",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, molestias necessitatibus illum eos placeat molestiae sit obcaecati minima deserunt repudiandae. Delectus ipsa alias reiciendis iste labore enim voluptatem assumenda placeat."
     }
-]
+];

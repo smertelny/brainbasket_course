@@ -1,4 +1,5 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
@@ -6,6 +7,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devtool: 'inline-source-map',
     watch: true,
     module: {
         rules: [{
@@ -18,5 +20,8 @@ module.exports = {
                 }
             }
         }]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+    ]
 };
