@@ -79,6 +79,12 @@ body {
     margin: 0 auto;
 }
 
+.wrapper::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .product::after,
 .product__block::after {
     content: "";
@@ -140,7 +146,7 @@ body {
 .product__buy {
     background: #1C503E;
     padding: 0.5rem;
-    color: #ffffff;
+    color: #FFFFFF;
     border-radius: 1rem;
 }
 
