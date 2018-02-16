@@ -33,17 +33,20 @@ body {
     margin: 10px 0;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .form-group label {
     font-family: sans-serif;
     padding: 5px;
+    width: 100%;
 }
 
 .form-group input {
     padding: 5px;
     border-radius: 5px;
-}
+    width: 100%;
+} 
 
 .login-form form button {
     margin-top: 0.5rem;
