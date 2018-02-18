@@ -3,13 +3,13 @@ html {
 }
 
 body {
-    position: relative;
-    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
-    padding-bottom: 3rem;
 }
 
 .wrapper {
+    flex: 1 0 auto;
     min-height: 95%;
     display: flex;
     width: 100%;
@@ -24,6 +24,7 @@ body {
     width: 85%;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .sidebar ul {
@@ -57,7 +58,7 @@ body {
 }
 
 .product-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: rgba(128, 128, 128, 0.233) 0.5rem 0.5rem;
 }
 
@@ -80,19 +81,19 @@ body {
 }
 
 footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    padding: 1rem;
-    margin-top: 2rem;
-    background: #558C89;
     text-align: center;
-    color: white;
+    padding: 1rem;
+    background: #558c89;
+    color: #FFFFFF;
+    flex-shrink: 0;
 }
 
 @media screen and (max-width: 1200px) {
+    .products {
+        justify-content: space-around;
+    }
     .product-card {
-        width: 48%;
+        width: 47%;
     }
     .product-card:nth-child(2n) {
         margin-right: 0%;
