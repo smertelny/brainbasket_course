@@ -27,7 +27,9 @@ export default class Products extends Component {
             return <h1 style={{textAlign: "center"}}>There is no products here</h1>
         }
         return (
-            this.state.products.map( (prod, index) => <Product key={index} data={prod} />)
+            <div className="products">
+                {this.state.products.map( (prod) => <Product key={prod.id} data={prod} />)}
+            </div>
         )
     }
 }

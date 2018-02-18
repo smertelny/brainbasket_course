@@ -160,8 +160,9 @@ body {
 }
 
 .animate {
-    margin: 5rem auto;
-    width: 5%;
+    display: flex;
+    width: 85%;
+    justify-content: center;
 }
 
 .animation {

@@ -11,7 +11,8 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: "./dist"
+        contentBase: ["./dist", "./"],
+        publicPath: 'http://localhost:8080/dist/'
     },
     module: {
         rules: [
@@ -37,7 +38,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: "MyAwesomeShop",
+            title: "MyAwesomeBookShop",
             filename: path.resolve(__dirname, "index.html"),
             template: path.resolve(__dirname, "src/templates/index.html"),
             favicon: path.resolve(__dirname, "favicon.ico"),
