@@ -19,6 +19,10 @@ body {
     border: 3px solid gray;
 }
 
+.sidebar .active {
+    color: green;
+}
+
 .products {
     flex-basis: 85%;
     display: flex;
@@ -43,6 +47,9 @@ body {
 }
 
 .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     border: 0.1rem solid #558c89;
     background: #FFFFFF;
     width: 22%;
@@ -115,10 +122,6 @@ footer {
 
     .product-card {
         width: 90%;
-    }
-    
-    .sidebar {
-        /* flex-basis: 100%; */
     }
 }
 

@@ -55,6 +55,11 @@ body {
     background: #558C89;
     min-width: 160px;
     z-index: 10;
+    right: 0;
+}
+
+.cart-dropdown {
+    padding: 1rem;
 }
 
 .main-menu>ul>li>a:hover,

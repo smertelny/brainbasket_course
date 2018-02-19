@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 
-import { ProductDetails } from "./ProductDetails";
-import { getProducts } from "../fakeApi"
 
 export default class Product extends Component {
     constructor() {
@@ -10,12 +8,12 @@ export default class Product extends Component {
         this.state = {
             reviews: null,
             showReviews: false
-        }
+        };
     }
 
     render() {
         if (!this.props.data) {
-            return <h1 style={{textAlign: "center"}}>There is no such product</h1>
+            return <h1 style={{textAlign: "center"}}>There is no such product</h1>;
         }
 
         let { data } = this.props;
@@ -28,11 +26,10 @@ export default class Product extends Component {
                 <ul className="product-card__details">
                     <li><strong>Автор:</strong> {data.author}</li>
                     <li><strong>Ціна:</strong> {data.price} {data.currency}</li>
-                    <li><strong>Жанр:</strong> {data.genre.length>0 ? data.genre.join(", ") : "---"}</li>
+                    <li><strong>Жанр:</strong> {data.genre.length > 0 ? data.genre.join(", ") : "---"}</li>
                 </ul>
-                <button>Придбати</button>
-                {/* <Route exact strict path="/book/1" component={ProductDetails} /> */}
+                <button onClick={this.props.cartAddHandler.bind(this, data)} >Придбати</button>
             </div>
-        )
+        );
     }
 }
