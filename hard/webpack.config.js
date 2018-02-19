@@ -4,15 +4,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: { 
+        main: "./src/",
+    },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: ["./dist", "./"],
-        publicPath: 'http://localhost:8080/dist/'
+        contentBase: [
+            path.resolve(__dirname, "dist"),
+            path.resolve(__dirname),
+        ],
+        host: "0.0.0.0",
     },
     module: {
         rules: [
@@ -39,10 +44,11 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             title: "MyAwesomeBookShop",
-            filename: path.resolve(__dirname, "index.html"),
+            // filename: path.resolve(__dirname, "index.html"),
             template: path.resolve(__dirname, "src/templates/index.html"),
             favicon: path.resolve(__dirname, "favicon.ico"),
-            xhtml: true,       
+            xhtml: true,
+                 
         }),
         new ExtractTextPlugin("style.css")
     ]

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { getProducts, getReviews } from "./fakeApi"
+import { getProducts } from "../fakeApi"
 
 export default class Product extends Component {
     constructor() {
@@ -10,7 +10,6 @@ export default class Product extends Component {
             showReviews: false
         }
     }
-
 
     render() {
         if (!this.props.data) {

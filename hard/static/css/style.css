@@ -161,7 +161,7 @@ body {
 
 .animate {
     display: flex;
-    width: 85%;
+    flex-basis: 85%;
     justify-content: center;
 }
 

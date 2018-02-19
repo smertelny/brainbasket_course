@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Product from "./Product"
-import { getProducts } from './fakeApi'
+import { getProducts } from '../fakeApi'
 
 export default class Products extends Component {
     constructor() {
