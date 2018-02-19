@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
+import { GENRES } from "../constants";
 
 const Sidebar = () => (
     <div className="sidebar">
       <ul>
-        <li><a href="#">Category1</a></li>
-        <li><a href="#">Category2</a></li>
-        <li><a href="#">Category3</a></li>
+        <li><Link to="/">Всі книги</Link></li>
+        {GENRES.map( (genre, index) => <li key={index}><NavLink to={`/${genre.toLowerCase()}`} activeStyle={{color: "green"}} >{genre}</NavLink></li>)}
       </ul>
       </div>
 );

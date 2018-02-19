@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link, Route } from "react-router-dom";
 
+import { ProductDetails } from "./ProductDetails";
 import { getProducts } from "../fakeApi"
 
 export default class Product extends Component {
@@ -21,7 +23,7 @@ export default class Product extends Component {
         return (
             <div className="product-card">
                 <img src={data.image} alt={data.name + " picture"} />
-                <a href={`book/${data.id}`}><h1>{data.name}</h1></a>
+                <Link to={`book/${data.id}`}><h1>{data.name}</h1></Link>
                 <hr />
                 <ul className="product-card__details">
                     <li><strong>Автор:</strong> {data.author}</li>
@@ -29,6 +31,7 @@ export default class Product extends Component {
                     <li><strong>Жанр:</strong> {data.genre.length>0 ? data.genre.join(", ") : "---"}</li>
                 </ul>
                 <button>Придбати</button>
+                {/* <Route exact strict path="/book/1" component={ProductDetails} /> */}
             </div>
         )
     }

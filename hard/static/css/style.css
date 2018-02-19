@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #ECECEA;
+    background: #bbd1cf;
 }
 
 /* Main menu start */
@@ -88,6 +88,7 @@ body {
 
 .product {
     margin-bottom: 10px;
+    padding: 1%;
 }
 
 .product,
@@ -109,6 +110,7 @@ body {
 
 .product__image_block img {
     max-width: 100%;
+    padding-right: 2rem;
 }
 
 .product__details {
@@ -160,6 +162,7 @@ body {
 }
 
 .animate {
+    margin-top: 2rem;
     display: flex;
     flex-basis: 85%;
     justify-content: center;
@@ -174,6 +177,10 @@ body {
     .product__desc {
         width: 100%;
         float: none;
+    }
+
+    .product__image_block img {
+        height: 50vh;
     }
 
     .main-menu ul:first-child {
@@ -199,7 +206,4 @@ body {
       padding-left: 20px;
     }
 
-    .animate {
-        width: 15%;
-    }
 }

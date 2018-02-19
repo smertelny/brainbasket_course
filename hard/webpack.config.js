@@ -18,6 +18,8 @@ module.exports = {
             path.resolve(__dirname),
         ],
         host: "0.0.0.0",
+        historyApiFallback: true,
+        // public: "1b969b95.ngrok.io",
     },
     module: {
         rules: [
