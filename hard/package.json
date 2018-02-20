@@ -25,7 +25,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "watch": "webpack --watch",
     "build": "webpack --config webpack.config.prod.js"
   }

@@ -13,9 +13,9 @@ ReactDOM.render(
     document.getElementById("root")
 );
 
-// if (module.hot) {
-//     module.hot.accept("./App", () => {
-//         const Next = require("./App").default;
-//         ReactDOM.render(<Next />, document.getElementById("root"));
-//     });
-// }
+if (module.hot) {
+    module.hot.accept("./components/App", () => {
+        const Next = require("./components/App").default;
+        ReactDOM.render(<HashRouter><Next /></HashRouter>, document.getElementById("root"));
+    });
+}
