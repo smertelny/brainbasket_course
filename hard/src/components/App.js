@@ -15,6 +15,7 @@ export default class App extends Component {
         };
         this.cartAddHandler = this.cartAddHandler.bind(this);
         this.cartClearHandler = this.cartClearHandler.bind(this);
+        this.cartRemoveHandler = this.cartRemoveHandler.bind(this);
     }
 
     componentDidMount() {
@@ -51,12 +52,30 @@ export default class App extends Component {
         found ? this.setState({cart: temp}) : this.setState({cart: [...temp, {...product, quantity: 1}]});
     }
 
+    cartRemoveHandler(product) {
+        let temp = this.state.cart.filter( item => {
+            if (item.id === product.id && item.quantity === 1) {
+                return false;
+            } else {
+                return true;
+            }}).map( item => {
+            if (item.id === product.id) {
+                if (item.quantity > 1) {
+                    return {...item, quantity: item.quantity - 1 };
+                }
+            } else {
+                return item;
+            }
+        });
+        this.setState({cart: temp});
+    }
+
     render() {
         return (
             <React.Fragment>
-                <Navbar cart={this.state.cart} cartClearHandler={this.cartClearHandler} />
+                <Navbar cart={this.state.cart} cartClearHandler={this.cartClearHandler} cartRemoveHandler={this.cartRemoveHandler} />
                 <div className="wrapper">
-                    <Sidebar cart={this.state.cart}/>
+                    <Sidebar cart={this.state.cart} />
                     <Switch>
                         <Route exact path="/book/:id" component={ProductDetails}/>
                         <Route exact path="/" render={(props) => <Products cart={this.state.cart} cartAddHandler={this.cartAddHandler} {...props} />} />
