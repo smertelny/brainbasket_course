@@ -49,7 +49,7 @@ body {
 .product-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 0.1rem solid #558c89;
     background: #FFFFFF;
     width: 22%;
@@ -80,14 +80,26 @@ body {
 }
 
 .product-card img {
-    max-height: 300px;
-    max-width: 100%; 
+    margin: 0 auto;
+    max-height: 350px;
+    max-width: 80%; 
 }
 
 .product-card__details {
     list-style: none;
     margin-top: 0.5rem;
     text-align: left;
+}
+
+.product-card>button {
+    padding: .2rem;
+    border-radius: 10px;
+    background: #558C89;
+    color: #FFFFFF;
+}
+
+.product-card>button:hover {
+    background: #74AFAD;
 }
 
 footer {

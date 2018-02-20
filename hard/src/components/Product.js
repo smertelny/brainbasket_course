@@ -20,14 +20,32 @@ export default class Product extends Component {
 
         return (
             <div className="product-card">
-                <img src={data.image} alt={data.name + " picture"} />
-                <Link to={`book/${data.id}`}><h1>{data.name}</h1></Link>
+                <Link to={`book/${data.id}`}>
+                    <img src={data.image} alt={data.name + " picture"} />
+                    <h1>{data.name}</h1>
+                </Link>
                 <hr />
-                <ul className="product-card__details">
+                {/* <ul className="product-card__details">
                     <li><strong>Автор:</strong> {data.author}</li>
                     <li><strong>Ціна:</strong> {data.price} {data.currency}</li>
                     <li><strong>Жанр:</strong> {data.genre.length > 0 ? data.genre.join(", ") : "---"}</li>
-                </ul>
+                </ul> */}
+                <table style={{textAlign: "left"}}>
+                    <tbody>
+                        <tr>
+                            <td><strong>Автор:</strong></td>
+                            <td>{data.author}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ціна:</strong></td>
+                            <td>{data.price} {data.currency}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Жанр:</strong></td>
+                            <td>{data.genre.length > 0 ? data.genre.join(", ") : "---"}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 <button onClick={this.props.cartAddHandler.bind(this, data)} >Придбати</button>
             </div>
         );

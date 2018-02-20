@@ -22,7 +22,7 @@ export default class Products extends Component {
 
     render() {
         if (this.state.isLoading) {
-            return <div className="animate"><img className="animation" src="static/img/reload.svg" alt="Loading..." /></div>;
+            return <div className="animate"><img className="animation" src="static/img/book_icon.svg" alt="Loading..." /></div>;
         }
         if (!this.state.isLoading && this.state.products.length === 0) {
             return <h1 style={{textAlign: "center"}}>There is no products here</h1>;
