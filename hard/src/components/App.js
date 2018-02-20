@@ -19,7 +19,7 @@ export default class App extends Component {
 
     componentDidMount() {
         let data = getLocalData();
-        this.setState({ cart: data});
+        this.setState({ cart: data });
     }
 
     componentDidUpdate() {
@@ -32,7 +32,23 @@ export default class App extends Component {
     }
 
     cartAddHandler(product) {
-        this.setState({cart: [...this.state.cart, product]});
+        let temp;
+        let found = false;
+        
+        if (this.state.cart.length === 0) {
+            found = true;
+            temp = [{...product, quantity: 1}, ];
+        } else {
+            temp = this.state.cart.map( prod => {
+                if(prod.id === product.id) {
+                    found = true;
+                    return {...prod, quantity: prod.quantity + 1 };
+                } else {
+                    return prod;
+                }
+            });
+        }
+        found ? this.setState({cart: temp}) : this.setState({cart: [...temp, {...product, quantity: 1}]});
     }
 
     render() {

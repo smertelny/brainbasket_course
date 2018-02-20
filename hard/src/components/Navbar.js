@@ -10,7 +10,7 @@ const Navbar = (props) => (
         <ul>
             {/* <li><a href="#">Dumb link</a></li> */}
             <li className="dropdown_btn"><a href="#">Кошик</a>
-                <Cart cart={props.cart} cartClearHandler={props.cartClearHandler} />
+                <Cart {...props} />
             </li>
             <li className="dropdown_btn"><a href="#">Dumb link</a>
                 <div className="dropdown">
