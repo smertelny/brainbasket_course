@@ -24,7 +24,7 @@ const Cart = (props) => {
                         )}
                         <tr style={{borderTop: "2px solid black"}}>
                             <td colSpan={3}>Всього</td>
-                            <td>{props.cart.map(product => product.price).reduce((prev, curr) => prev + curr)} UAH</td>
+                            <td>{props.cart.map(product => product.price * product.quantity).reduce((prev, curr) => prev + curr).toFixed(2)} UAH</td>
                         </tr>
                     </tbody>
                 </table>
