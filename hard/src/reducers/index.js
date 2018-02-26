@@ -9,7 +9,7 @@ import {
 function cart(state=[], action) {
     switch (action.type) {
     case ADD_TO_CART:
-        let quant = action.set_quantity || 1
+        let quant = action.set_quantity || 1;
         if (state.find( elem => elem.id === action.product.id) === undefined) {   
             return [
                 ...state,
@@ -47,8 +47,20 @@ function cart(state=[], action) {
     }
 }
 
+function message(state={ isDisplaing: false, text: ""}, action) {
+    switch(action.type) {
+    case ADD_TO_CART:
+        return { isDisplaing: true, text: action.product.name};
+    case "MESSAGE_DISMISS":
+        return { isDisplaing: false, text: state.text };
+    default:
+        return state;
+    }
+}
+
 const rootReducer = combineReducers({
     cart,
+    message
 });
 
 export default rootReducer;

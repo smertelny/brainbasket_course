@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Products from "./Products";
 import Sidebar from "./Sidebar";
 import ProductDetails from "./ProductDetails";
+import Message from "./Message";
 
 export default class App extends Component {
     render() {
@@ -12,6 +13,7 @@ export default class App extends Component {
             <React.Fragment>
                 <Navbar />
                 <div className="wrapper">
+                    <Message />
                     <Sidebar />
                     <Switch>
                         <Route exact path="/" component={Products} />

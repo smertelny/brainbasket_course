@@ -47,7 +47,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         cartClearHandler: () => dispatch(clearCart()),
-        cartRemoveHandler: product => dispatch(removeFromCart(product))
+        cartRemoveHandler: product => dispatch(removeFromCart(product)),
     };
 };
 

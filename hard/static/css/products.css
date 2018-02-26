@@ -116,6 +116,30 @@ footer {
     flex-shrink: 0;
 }
 
+@keyframes fadeIn {
+    0%{ opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0%{ opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.alert {
+    padding: 10px;
+    top: 15%;
+    position: fixed;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    background: #d4edda;
+    z-index: 2;
+    color: #155724;
+    animation: fadeIn .5s ease, fadeOut .5s ease 2.7s;
+}
+
 @media screen and (max-width: 1200px) {
     .products {
         justify-content: space-around;
