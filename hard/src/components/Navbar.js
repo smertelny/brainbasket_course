@@ -8,10 +8,6 @@ const Navbar = (props) => (
             <li className="brand"><a href="#">MyAwesomeShop</a></li>
         </ul>
         <ul>
-            {/* <li><a href="#">Dumb link</a></li> */}
-            <li className="dropdown_btn"><a href="#">Кошик</a>
-                <Cart {...props} />
-            </li>
             <li className="dropdown_btn"><a href="#">Dumb link</a>
                 <div className="dropdown">
                     <ul>
@@ -21,6 +17,10 @@ const Navbar = (props) => (
                     </ul>
                 </div>
             </li>
+            <li className="dropdown_btn"><a href="#">Кошик</a>
+                <Cart />
+            </li>
+            
         </ul>
     </nav>
 );

@@ -17,7 +17,6 @@ export default class Products extends Component {
         getProducts("/books").then( response => 
             this.setState({products: response, isLoading: false })
         );
-    
     }
 
     render() {
@@ -38,7 +37,7 @@ export default class Products extends Component {
 
         return (
             <div className="products">
-                {this.state.products.map( (prod) => <Product key={prod.id} data={prod} {...this.props}/>)}
+                {this.state.products.map( (prod) => <Product key={prod.id} data={prod} />)}
             </div>
         );
     }

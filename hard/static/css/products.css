@@ -16,19 +16,10 @@ body {
 
 .sidebar {
     flex-basis: 15%;
-    border: 3px solid gray;
 }
 
 .sidebar .active {
     color: green;
-}
-
-.products {
-    flex-basis: 85%;
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    min-height: 100%;
 }
 
 .sidebar ul {
@@ -44,6 +35,20 @@ body {
     font-size: 1.5rem;
     text-decoration: none;
     color: #000000;
+}
+
+.sidebar>ul>li>a:hover {
+    border: 3px solid #558C89;
+    /* color: white; */
+    border-radius: 10px;
+}
+
+.products {
+    flex-basis: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    min-height: 100%;
 }
 
 .product-card {
@@ -81,6 +86,7 @@ body {
 
 .product-card img {
     margin: 0 auto;
+    min-width: 200px;
     max-height: 350px;
     max-width: 80%; 
 }

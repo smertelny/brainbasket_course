@@ -14,8 +14,13 @@ body {
     background: #558C89;
 }
 
+.main-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .main-menu .left {
-    float: left;
+    margin-right: auto;
 }
 
 .main-menu li.brand a {
@@ -31,7 +36,7 @@ body {
 }
 
 .main-menu>ul>li {
-    float: right;
+    /* float: right; */
     display: inline-block;
 }
 
@@ -190,17 +195,22 @@ body {
         height: 50vh;
     }
 
-    .main-menu ul:first-child {
-        margin: 0;
-    }
-
     .dropdown_btn:hover .dropdown {
         box-shadow: none;
     }
 
+    .main-menu {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .main-menu>ul {
+        width: 100%;
+    }
+
     .main-menu>ul>li,
     .main-menu .left {
-        float: none;
+        margin-right: 0;
         display: block;
     }
 
