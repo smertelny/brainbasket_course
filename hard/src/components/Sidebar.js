@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { GENRES } from "../constants";
 
-const Sidebar = () => (
+const Sidebar = (props) => (
     <div className="sidebar">
         <ul>
             <li><NavLink exact to="/" activeClassName="active" >Всі книги</NavLink></li>
@@ -11,5 +12,13 @@ const Sidebar = () => (
         </ul>
     </div>
 );
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onClick: (filter) => {
+            dispatch({type: "CHANGE_FILTER", filter});
+        }
+    };
+};
 
 export default Sidebar;

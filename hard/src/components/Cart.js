@@ -51,9 +51,7 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const Cart = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(CartComponent);
-
-export default Cart;

@@ -1,44 +1,41 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Product from "./Product";
-import { getProducts } from "../fakeApi";
+import { getVisibleProducts } from "../actions/actions";
 
-export default class Products extends Component {
-    constructor() {
-        super();
-        this.state = {
-            isLoading: false,
-            products: [],
-        };
-    }
 
-    componentDidMount() {
-        this.setState({isLoading: true});
-        getProducts("/books").then( response => 
-            this.setState({products: response, isLoading: false })
-        );
-    }
-
+class Products extends Component {
     render() {
-        if (this.state.isLoading) {
-            return <div className="animate"><img className="animation" src="static/img/book_icon.svg" alt="Loading..." /></div>;
-        }
-        if (!this.state.isLoading && this.state.products.length === 0) {
-            return <h1 style={{textAlign: "center"}}>There is no products here</h1>;
-        }
+        if (this.props.products) {
+            if (this.props.products.isFetching) {
+                return <div className="animate"><img className="animation" src="static/img/book_icon.svg" alt="Loading..." /></div>;
+            }
+            if (!this.props.products.isFetching && this.props.products.items.length === 0) {
+                return <h1 style={{textAlign: "center"}}>There is no products here</h1>;
+            }
 
-        if (this.props.match.params.filter) {
+            if (this.props.match.params.filter) {
+                return (
+                    <div className="products">
+                        {this.props.products.items.filter( prod => prod.genre.find(elem => elem.toLowerCase() === this.props.match.params.filter) ).map((prod) => <Product {...this.props} key={prod.id} data={prod} />)}
+                    </div>
+                );
+            }
+
             return (
                 <div className="products">
-                    {this.state.products.filter( prod => prod.genre.find(elem => elem.toLowerCase() === this.props.match.params.filter) ).map((prod) => <Product {...this.props} key={prod.id} data={prod} />)}
+                    {this.props.products.items.map( (prod) => <Product key={prod.id} data={prod} />)}
                 </div>
             );
         }
-
-        return (
-            <div className="products">
-                {this.state.products.map( (prod) => <Product key={prod.id} data={prod} />)}
-            </div>
-        );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        products: state.products
+    };
+};
+
+export default connect(mapStateToProps, null)(Products);

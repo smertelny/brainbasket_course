@@ -2,9 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 
 const MessageComponent = props => {
-    console.log(props); 
     return (
-        props.message.isDisplaing ? <div className="alert" style={{opacity: "none"}} >{`Ви додали товар ${props.message.text}`}</div> : null
+        props.message.isDisplaing && <div className="alert" style={{opacity: "none"}} >{`Ви додали товар ${props.message.text}`}</div>
     );
 };
 
@@ -14,9 +13,4 @@ const mapStateToProps = state => {
     };
 };
 
-const Message = connect(
-    mapStateToProps,
-    null
-)(MessageComponent);
-
-export default Message;
+export default connect(mapStateToProps)(MessageComponent);

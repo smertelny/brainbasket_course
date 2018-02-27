@@ -52,7 +52,30 @@ function message(state={ isDisplaing: false, text: ""}, action) {
     case ADD_TO_CART:
         return { isDisplaing: true, text: action.product.name};
     case "MESSAGE_DISMISS":
-        return { isDisplaing: false, text: state.text };
+        return { isDisplaing: false, text: "" };
+    default:
+        return state;
+    }
+}
+
+function products(state={
+    isFetching: false,
+    items: []
+}, action) {
+    switch(action.type) {
+    case "PRODUCTS_REQUEST":
+        return {...state, isFetching: true};
+    case "PRODUCTS_RECIEVED":
+        return {isFetching: false, items: action.products};
+    default:
+        return state;
+    }
+}
+
+function filter(state="all", action) {
+    switch(action.type){
+    case("CHANGE_FILTER"):
+        return { filter: action.filter };
     default:
         return state;
     }
@@ -60,7 +83,9 @@ function message(state={ isDisplaing: false, text: ""}, action) {
 
 const rootReducer = combineReducers({
     cart,
-    message
+    message,
+    products,
+    filter
 });
 
 export default rootReducer;
