@@ -75,7 +75,7 @@ function products(state={
 function filter(state="all", action) {
     switch(action.type){
     case("CHANGE_FILTER"):
-        return { filter: action.filter };
+        return action.filter;
     default:
         return state;
     }

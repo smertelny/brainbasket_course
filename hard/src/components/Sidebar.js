@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { GENRES } from "../constants";
@@ -7,18 +7,18 @@ import { GENRES } from "../constants";
 const Sidebar = (props) => (
     <div className="sidebar">
         <ul>
-            <li><NavLink exact to="/" activeClassName="active" >Всі книги</NavLink></li>
-            {GENRES.map( (genre, index) => <li key={index}><NavLink to={`/${genre.toLowerCase()}`} activeClassName="active" >{genre}</NavLink></li>)}
+            <li onClick={() => props.handleClick("all")}><NavLink exact to="/" activeClassName="active" >Всі книги</NavLink></li>
+            {GENRES.map( (genre, index) => <li onClick={() => props.handleClick(genre)} key={index}><NavLink to={`/${genre.toLowerCase()}`} activeClassName="active" >{genre}</NavLink></li>)}
         </ul>
     </div>
 );
 
 const mapDispatchToProps = dispatch => {
     return {
-        onClick: (filter) => {
+        handleClick: (filter) => {
             dispatch({type: "CHANGE_FILTER", filter});
         }
     };
 };
 
-export default Sidebar;
+export default withRouter(connect(null, mapDispatchToProps)(Sidebar));

@@ -4,6 +4,7 @@ import { PRODUCTS } from "../constants";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const CLEAR_CART = "CLEAR_CART";
+export const MESSAGE_DISMISS = "MESSAGE_DISMISS";
 
 
 function add_to_cart(product, set_quantity=1) {
@@ -19,7 +20,7 @@ export function clearCart() {
 }
 
 export function msgDismiss() {
-    return { type: "MESSAGE_DISMISS" };
+    return { type: MESSAGE_DISMISS };
 }
 
 export function addToCart(product, set_quantity=1) {
@@ -31,21 +32,21 @@ export function addToCart(product, set_quantity=1) {
     };
 }
 
-export function changeFilter(products, filter) {
-    return {type: "CHANGE_FILTER", products, filter };
+export function changeFilter(filter) {
+    return {type: "CHANGE_FILTER", filter};
 }
 
-export function getVisibleProducts(products, filter) {
-    switch(filter.filter) {
-    case "":
-    case "all":
-        return products;
-    default:
-        return {items: products.items.filter(item => item.genre.find(
-            elem => elem.toLowerCase() === filter.filter
-        ))};
-    }
-}
+// export function getVisibleProducts(products, filter) {
+//     switch(filter.filter) {
+//     case "":
+//     case "all":
+//         return products;
+//     default:
+//         return {items: products.items.filter(item => item.genre.find(
+//             elem => elem.toLowerCase() === filter.filter
+//         ))};
+//     }
+// }
 
 export function getPosts() {
     return dispatch => {
