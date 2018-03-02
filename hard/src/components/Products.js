@@ -11,6 +11,7 @@ class Products extends Component {
             if (this.props.products.isFetching) {
                 return <div className="animate"><img className="animation" src="static/img/book_icon.svg" alt="Loading..." /></div>;
             }
+
             if (!this.props.products.isFetching && this.props.products.items.length === 0) {
                 return <h1 style={{textAlign: "center"}}>There is no products here</h1>;
             }
@@ -34,7 +35,7 @@ class Products extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.products
+        products: getVisibleProducts(state.products, state.filter)
     };
 };
 

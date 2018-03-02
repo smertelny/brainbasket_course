@@ -8,7 +8,7 @@ import Products from "./Products";
 import Sidebar from "./Sidebar";
 import ProductDetails from "./ProductDetails";
 import Message from "./Message";
-import { getPosts, msgDismiss } from "../actions/actions";
+import { getPosts, msgDismiss, getProducts } from "../actions/actions";
 
 class App1 extends Component {
     componentDidMount() {
@@ -41,7 +41,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getPosts: () => dispatch(getPosts()),
+        getPosts: () => dispatch(getProducts()),
         msgDismiss: () => dispatch(msgDismiss())
     };
 };

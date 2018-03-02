@@ -11,7 +11,6 @@ import style from "../static/css/style.css";
 import style2 from "../static/css/products.css";
 import { getLocalData, setLocalData } from "./localStorage";
 
-
 let store = createStore(
     rootReducer,
     getLocalData(),
