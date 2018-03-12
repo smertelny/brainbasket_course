@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 
 import Cart from "./Cart";
 
@@ -17,12 +18,21 @@ const Navbar = (props) => (
                     </ul>
                 </div>
             </li>
-            <li className="dropdown_btn"><a href="#">Кошик</a>
-                <Cart />
+            <li className="dropdown_btn">
+                <a 
+                onClick={() => props.cartClickHandler()} href="#">Кошик</a>
             </li>
             
         </ul>
     </nav>
 );
 
-export default Navbar;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        cartClickHandler: () => dispatch(
+            {type:"CHANGE_CART_VISIBILITY"}
+        )
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Navbar);

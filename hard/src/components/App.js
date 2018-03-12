@@ -8,9 +8,10 @@ import Products from "./Products";
 import Sidebar from "./Sidebar";
 import ProductDetails from "./ProductDetails";
 import Message from "./Message";
+import Cart from "./Cart";
 import { getPosts, msgDismiss, getProducts } from "../actions/actions";
 
-class App1 extends Component {
+class App extends Component {
     componentDidMount() {
         this.props.msgDismiss();
         this.props.getPosts();      
@@ -19,6 +20,7 @@ class App1 extends Component {
     render() {
         return (
             <React.Fragment>
+                <div className={"content" + (this.props.cartHidden ? " cart-visible" : "")}>
                 <Navbar />
                 <div className="wrapper">
                     <Message />
@@ -28,6 +30,10 @@ class App1 extends Component {
                         <Route exact path="/book/:id(\d+)" component={ProductDetails}/>
                     </Switch>
                 </div>
+                </div>
+                <div className={"cart" + (!this.props.cartHidden ? " hidden" : "")}>
+                    <Cart />
+                </div>
             </React.Fragment>
         );
     }
@@ -35,7 +41,8 @@ class App1 extends Component {
 
 const mapStateToProps = state => {
     return {
-        products: state.filter
+        products: state.filter,
+        cartHidden: state.cart.visible
     }
 }
 
@@ -49,4 +56,4 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(App1));
+)(App));

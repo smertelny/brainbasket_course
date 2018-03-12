@@ -5,6 +5,7 @@
 }
 
 body {
+    display: flex;
     background: #bbd1cf;
 }
 
@@ -36,8 +37,8 @@ body {
 }
 
 .main-menu>ul>li {
-    /* float: right; */
     display: inline-block;
+    position: relative;
 }
 
 .main-menu ul {
@@ -85,7 +86,7 @@ body {
 
 /* Product start */
 .wrapper {
-    width: 80%;
+    flex-basis: 80%;
     margin: 0 auto;
 }
 
