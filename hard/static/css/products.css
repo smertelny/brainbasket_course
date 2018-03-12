@@ -166,6 +166,10 @@ footer {
     width: 80%;
 }
 
+.cart-visible .product-card {
+    width: 30%;
+}
+
 .cart.hidden {
     right: -20%;
 }

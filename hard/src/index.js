@@ -9,6 +9,7 @@ import rootReducer from "./reducers/index";
 import App from "./components/App";
 import style from "../static/css/style.css";
 import style2 from "../static/css/products.css";
+import style3 from "../static/css/cart.css";
 import { getLocalData, setLocalData } from "./localStorage";
 
 let store = createStore(
