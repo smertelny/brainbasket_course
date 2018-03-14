@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { clearCart, removeFromCart, getTotalQuantity } from "../actions/actions";
+import { clearCart, removeFromCart } from "../actions/actions";
 
 const CartComponent = (props) => {
     if (!props.cart || Object.keys(props.cart).length === 0) {
@@ -24,7 +24,6 @@ const CartComponent = (props) => {
                 ))}
                 <hr />
                 <h2>Всього: {Object.keys(props.cart).map(id => props.cart[id].price * props.cart[id].quantity ).reduce((prev, curr) => prev + curr).toFixed(2)} UAH</h2>
-                <h2>Всього к-сть: {props.getQuantity()}</h2>
                 <button className="cart__clear" onClick={() => props.cartClearHandler()}>Видалити з кошика</button>
                 <button className="cart__buy" onClick={() => alert("Not implemented yet")}>Замовити</button>
             </React.Fragment>
@@ -36,7 +35,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         cart: state.cart.items,
         visible: state.cart.cartVisible,
-        // getQuantity: getTotalQuantity(),
     };
 };
 
@@ -44,8 +42,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         cartClearHandler: () => dispatch(clearCart()),
         cartRemoveHandler: product => dispatch(removeFromCart(product)),
-        getQuantity: () => dispatch(getTotalQuantity()),
-        getStore: () => console.log(ownProps),
     };
 };
 

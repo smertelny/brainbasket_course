@@ -11,9 +11,9 @@ function tryLocalStorage() {
 export function getLocalData() {
     if (tryLocalStorage()) {
         let data = JSON.parse(localStorage.getItem("cart"));
-        return data ? data :[] ;
+        return data ? data : {};
     } else {
-        return [];
+        return {};
     }
 }
 

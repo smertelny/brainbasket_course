@@ -4,18 +4,7 @@ import { connect } from 'react-redux';
 import { addToCart } from "../actions/actions";
 
 
-// constructor() {
-//     super();
-//     this.state = {
-//         reviews: null,
-//         showReviews: false
-//     };
-// }
-
-// render() {}
-
-
-const Product1 = (props) => {  
+const Product = (props) => {  
     if (!props.data) {
         return <h1 style={{textAlign: "center"}}>There is no such product</h1>;
     }
@@ -55,16 +44,13 @@ const Product1 = (props) => {
     );
 }
 
-
 const mapDispatchToProps = dispatch => {
     return {
         cartAddHandler: data => dispatch(addToCart(data))
     }
 }
 
-const Product = connect(
+export default connect(
     null,
     mapDispatchToProps
-)(Product1);
-
-export default Product;
+)(Product);

@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar";
 import ProductDetails from "./ProductDetails";
 import Message from "./Message";
 import Cart from "./Cart";
-import { getPosts, msgDismiss, getProducts } from "../actions/actions";
+import { msgDismiss, getProducts } from "../actions/actions";
 
 class App extends Component {
     componentDidMount() {

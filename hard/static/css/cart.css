@@ -1,3 +1,10 @@
+.cartBadge {
+    background: #FFF;
+    color: #000;
+    padding: .1rem;
+    border-radius: .175rem;
+}
+
 .cart {
     overflow: auto;
     background: #558C89;

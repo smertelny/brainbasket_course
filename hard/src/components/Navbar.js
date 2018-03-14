@@ -20,19 +20,26 @@ const Navbar = (props) => (
             </li>
             <li className="dropdown_btn">
                 <a 
-                onClick={() => props.cartClickHandler()} href="#">Кошик</a>
+                onClick={() => props.cartClickHandler()} href="#">Кошик <span className="cartBadge">{ Object.keys(props.cart).map(id => props.cart[id].quantity).reduce((prev, curr) => prev + curr, 0) }</span></a>
             </li>
             
         </ul>
     </nav>
 );
 
+const mapStateToProps = state => {
+    return {
+        cart: state.cart.items,
+    }
+}
+
+
 const mapDispatchToProps = (dispatch) => {
     return {
         cartClickHandler: () => dispatch(
             {type:"CHANGE_CART_VISIBILITY"}
-        )
+        ),
     }
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
