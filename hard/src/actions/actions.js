@@ -35,6 +35,14 @@ export function addToCart(product, set_quantity=1) {
     };
 }
 
+export function getTotalQuantity() {
+    return (dispatch, getState) => {
+        return Object.keys(getState().cart.items)
+            .map(id => getState().cart.items[id].quantity)
+            .reduce((prev, curr) => prev + curr);
+    }
+}
+
 export function changeFilter(filter) {
     return {type: CHANGE_FILTER, filter};
 }
