@@ -20,7 +20,7 @@ const Navbar = (props) => (
             </li>
             <li className="dropdown_btn">
                 <a 
-                onClick={() => props.cartClickHandler()} href="#">Кошик <span className="cartBadge">{ Object.keys(props.cart).map(id => props.cart[id].quantity).reduce((prev, curr) => prev + curr, 0) }</span></a>
+                onClick={() => props.cartClickHandler()} href="#">Кошик <span className="cart__badge">{ Object.keys(props.cart).map(id => props.cart[id].quantity).reduce((prev, curr) => prev + curr, 0) }</span></a>
             </li>
             
         </ul>
