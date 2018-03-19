@@ -15,14 +15,9 @@ const Product = (props) => {
         <div className="product-card">
             <Link to={`book/${data.id}`}>
                 <img src={data.image} alt={data.name + " picture"} />
-                <h1>{data.name}</h1>
+                <div className="product-cart__title">{data.name}</div>
             </Link>
             <hr />
-            {/* <ul className="product-card__details">
-                <li><strong>Автор:</strong> {data.author}</li>
-                <li><strong>Ціна:</strong> {data.price} {data.currency}</li>
-                <li><strong>Жанр:</strong> {data.genre.length > 0 ? data.genre.join(", ") : "---"}</li>
-            </ul> */}
             <table style={{textAlign: "left"}}>
                 <tbody>
                     <tr>

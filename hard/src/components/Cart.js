@@ -7,7 +7,10 @@ import { clearCart, removeFromCart, addToCart } from "../actions/actions";
 const CartComponent = (props) => {
     if (!props.cart || Object.keys(props.cart).length === 0) {
         return <React.Fragment>
-                    <span className="cart__header">Ваш кошик:</span>
+                    <div className="cart__header">
+                        Ваш кошик:
+                        <span onClick={() => props.cartClickHandler()} className="cart__exit-x-mark">&#10006;</span>
+                    </div>
                     <div>В кошику нічого немає :-(</div>
                     <span className="cart__total">Всього: {Object.keys(props.cart).map(id => props.cart[id].price * props.cart[id].quantity ).reduce((prev, curr) => prev + curr, 0).toFixed(2)} UAH</span>
                     <button disabled className="cart__clear" onClick={() => props.cartClearHandler()}>Видалити з кошика</button>
@@ -16,7 +19,9 @@ const CartComponent = (props) => {
     } else {
         return(
             <React.Fragment>
-                <span className="cart__header">Ваш кошик:</span>
+                <div className="cart__header">
+                    Ваш кошик:<span onClick={() => props.cartClickHandler()} className="cart__exit-x-mark">&#10006;</span>
+                </div>
                 {Object.keys(props.cart).map((id, index) => (
                     <div key={index} className="cart__product">
                         <hr />
@@ -43,18 +48,23 @@ const CartComponent = (props) => {
     }
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
     return {
         cart: state.cart.items,
         visible: state.cart.cartVisible,
     };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
     return {
         cartClearHandler: () => dispatch(clearCart()),
         cartRemoveHandler: product => dispatch(removeFromCart(product)),
         cartAddHandler: product => dispatch(addToCart(product)),
+        cartClickHandler: () => {
+            return dispatch(
+                {type:"CHANGE_CART_VISIBILITY"}
+            )
+        },
     };
 };
 

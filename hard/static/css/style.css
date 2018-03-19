@@ -9,6 +9,16 @@ body {
     background: #bbd1cf;
 }
 
+/* Preload animation */
+#root {
+    display: flex;
+}
+
+#root>img {
+    margin: auto;
+}
+/* End preload animation */
+
 /* Main menu start */
 .main-menu,
 .main-menu li.brand a:hover {

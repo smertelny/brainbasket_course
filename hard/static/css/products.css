@@ -79,6 +79,11 @@ body {
     box-shadow: rgba(128, 128, 128, 0.233) 0.5rem 0.5rem;
 }
 
+.product-cart__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .product-card a {
     color: #000000;
     text-decoration: none;
@@ -90,8 +95,9 @@ body {
 
 .product-card img {
     margin: 0 auto;
-    max-height: 350px;
-    max-width: 80%; 
+    max-height: 300px;
+    max-width: 80%;
+    min-height: 300px;
 }
 
 .product-card__details {

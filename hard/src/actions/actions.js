@@ -55,11 +55,12 @@ export function getProducts() {
         dispatch({type: FETCH_PRODUCTS_REQUEST});
         api.getProducts("/books").then( response => 
             dispatch({type: FETCH_PRODUCTS_RECIEVED, products: response})
-        ).catch(err => { return dispatch => 
+        ).catch(err => { return dispatch => {
             dispatch({type: FETCH_PRODUCTS_ERROR, error: err});
             setTimeout(() => {
                 dispatch(msgDismiss());
             }, 5000);
+        }
         });
     };
 }

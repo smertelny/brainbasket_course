@@ -9,18 +9,9 @@ const Navbar = (props) => (
             <li className="brand"><a href="#">MyAwesomeShop</a></li>
         </ul>
         <ul>
-            <li className="dropdown_btn"><a href="#">Dumb link</a>
-                <div className="dropdown">
-                    <ul>
-                        <li><a href="#">Dropdown dumb link</a></li>
-                        <li><a href="#">Dropdown dumb link</a></li>
-                        <li><a href="#">Dropdown dumb link</a></li>
-                    </ul>
-                </div>
-            </li>
             <li className="dropdown_btn">
                 <a 
-                onClick={() => props.cartClickHandler()} href="#">Кошик <span className="cart__badge">{ Object.keys(props.cart).map(id => props.cart[id].quantity).reduce((prev, curr) => prev + curr, 0) }</span></a>
+                onClick={e => props.cartClickHandler(e)} href="#">Кошик <span className="cart__badge">{ Object.keys(props.cart).map(id => props.cart[id].quantity).reduce((prev, curr) => prev + curr, 0) }</span></a>
             </li>
             
         </ul>
@@ -36,9 +27,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        cartClickHandler: () => dispatch(
-            {type:"CHANGE_CART_VISIBILITY"}
-        ),
+        cartClickHandler: event => {
+            event.preventDefault();
+            return dispatch(
+                {type:"CHANGE_CART_VISIBILITY"}
+            )
+        },
     }
 }
 

@@ -9,36 +9,7 @@
 //     currency: "",
 // }
 
-// {
-//     id: 0,
-//     name: "My super Product",
-//     image: "./static/img/placeholder.png",
-//     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-//     In posuere lorem et metus ultricies, non auctor metus vehicula. 
-//     Praesent ultrices ultrices feugiat. Cras quis ante orci. 
-//     Nunc et est eu urna auctor scelerisque eget quis tortor. 
-//     Praesent id enim suscipit, tempus mauris a, rutrum augue. 
-//     Ut tellus urna, iaculis et tellus in, maximus aliquam tortor. 
-//     Etiam ullamcorper et lectus in aliquam. 
-//     In ut nisl eget risus aliquet egestas faucibus vel neque. 
-//     Duis mauris mauris, ullamcorper non ullamcorper sit amet, 
-//     pulvinar at turpis. Pellentesque condimentum sodales neque at rutrum. 
-//     Orci varius natoque penatibus et magnis dis parturient montes, 
-//     nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur 
-//     adipiscing elit.`,
-//     details: [
-//         "You need it",
-//         "You really need it!",
-//         "You need it for sure!!!",
-//         "Very cool"
-//     ],
-//     price: 10,
-//     currency: "USD",
-//     reviews_url: "./reviews.html"
-// },
-
 export const PRODUCTS = [
-    
     {
         id: 1,
         author: "Рей Бредбери",
@@ -99,14 +70,51 @@ export const PRODUCTS = [
         price: 664,
         currency: "UAH",
     },
+    {
+        id: 7,
+        author: "Ерих Марія Ремарк",
+        name: "На Західному фронті без змін",
+        image: "static/img/na_zahidomu_fronti.jpg",
+        description: "Школярів, рибалок, фермерів вирвали зі звичного життя і кинули у криваву бійню. Тисячі з них навіки залишаться на полях війни, тисячі тих, хто виживуть, позаздрять загиблим. Пауль пішов на фронт. Минуло кілька тижнів — і з його класу живими залишилося вісім хлопців. А війні не видно кінця…",
+        genre: ["Роман",],
+        price: 139,
+        currency: "UAH",
+    },
+    {
+        id: 8,
+        author: "Джеймс Джойс",
+        name: "Улісс",
+        image: "static/img/ullis.jpg",
+        description: "„Улісс“ відносять до найвидатніших книжок світової літератури, але при цьому зовсім небагато людей, навіть серед фахових філологів, можуть похвалитися, що прочитали її до кінця, та ще й не з примусу, та ще й дістали від цього задоволення. Адже роман, написаний у 1914–1921 роках, справді вельми непростий. У свій здоровенний том Джеймс Джойс умістив лише один день життя кількох мешканців Дубліна, але зробив його настільки насиченим внутрішніми монологами, асоціативними рядами, алюзіями-натяками на просто неймовірний обсяг творів мистецтва, історичних подій і діячів та інших подібних речей, мовними іграми, символічними планами, що в підсумку вийшов калейдоскопічний, багатошаровий твір», — пише Олег Коцарев.\nУ 1999 році журнал «Тайм» розмістив ім’я Джеймса Джойса у списку «100 героїв та кумирів ХХ сторіччя», де зазначалося, що він здійснив справжню революцію в царині культури, підбивши таким чином підсумок усього сучасного модернізму.",
+        genre: ["Роман",],
+        price: 301,
+        currency: "UAH",
+    },
+    {
+        id: 9,
+        author: "Вільям Шекспір",
+        name: "Гамлет",
+        image: "static/img/gamlet.jpg",
+        description: "Це перший у третьому тисячолітті український переклад вершинного твору Шекспіра, п’єси, яка не сходила зі сцени з часу написання — аж до сьогодні. Гамлета можна сприймати як завгодно — у дусі класики чи постмодернізму, проте важко знайти людину, яку б не вразила трагедія про принца данського. Цей твір, в ідеалі, мало б перекладати чи не кожне покоління — з притаманними тільки йому лексикою, акцентами й нюансуванням. Наше видання «Гамлета» здійснено двома знаковими постатями сучасного українського культурного простору — письменником Юрієм Андруховичем та ілюстратором Владиславом Єрком. Їхня версія «Гамлета» — це щаслива нагода пережити геніальний твір по-новому, гостро відчути його вічну актуальність і сучасність.",
+        genre: ["Трагедія"],
+        price: 150,
+        currency: "UAH"
+    },
+    {
+        id: 10,
+        author: "Оскар Вайлд",
+        name: "Портрет Доріана Грея",
+        image: "static/img/dorian_grey.jpg",
+        description: "«Портрет Доріана Ґрея» — вершина проповідуваного Оскаром Вайлдом естетизму і водночас великої мистецької сили заперечення декадентських крайнощів цієї концепції; це один із найпарадоксальніших романів модернізму.\nЗа словами самого письменника, «справжня мораль цього твору полягає в тому, що всяке надуживання, так само, як і самозречення, тягне за собою покару». Моральний злочин призводить до колапсу естетики. Ще один і, можливо, найголовніший урок цього роману полягає в тому, що людина не може надміру загравати ані з мистецтвом, ані з життям.",
+        genre: ["Фентезі", "Роман", "Готика"],
+        price: 374,
+        currency: "UAH"
+    }
 ];
 
-export const GENRES = [
-    "Антиутопія", 
-    "Фантастика",
-    "Роман",
-    "Програмування"
-]
+const genres = new Set();
+PRODUCTS.map(item => item.genre.map(i => genres.add(i)));
+export const GENRES = [...genres];
 
 export const REVIEWS = [
     {
