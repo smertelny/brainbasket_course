@@ -9,6 +9,7 @@ export const CHANGE_FILTER = "CHANGE_FILTER";
 export const FETCH_PRODUCTS_REQUEST = "FETCH_PRODUCTS_REQUEST";
 export const FETCH_PRODUCTS_RECIEVED = "FETCH_PRODUCTS_RECIEVED";
 export const FETCH_PRODUCTS_ERROR = "FETCH_PRODUCTS_ERROR";
+export const ADD_FUNC = "ADD_FUNC";
 
 function add_to_cart(product, set_quantity=1) {
     return { type: ADD_TO_CART, product, set_quantity };
@@ -27,11 +28,15 @@ export function msgDismiss() {
 }
 
 export function addToCart(product, set_quantity=1) {
-    return dispatch => {
+    return (dispatch, getState) => {
+        if (getState().message.func) {
+            clearTimeout(getState().message.func);
+        }
         dispatch(add_to_cart(product, set_quantity));
-        setTimeout(() => {
+        let timeout = setTimeout(() => {
             dispatch(msgDismiss());
         }, 3000);
+        dispatch({type: ADD_FUNC, func: timeout});
     };
 }
 

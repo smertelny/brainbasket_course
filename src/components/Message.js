@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 
 const MessageComponent = props => {
     return (
-        props.message.isDisplaing && <div className={`alert ${props.message.type}`} style={{opacity: "none"}} >{`Ви додали товар ${props.message.text}`}</div>
+        <div 
+            className={"alert" + (props.message.isDisplaying ? " show-alert" : "")} 
+        >
+            {`Ви додали товар ${props.message.text}`}
+        </div>
     );
 };
 
