@@ -19,7 +19,9 @@ let store = createStore(
 );
 
 store.subscribe(() => setLocalData(store.getState()));
-store.subscribe(() => console.log(store.getState()));
+if (process.env.NODE_ENV !== 'production') {
+    store.subscribe(() => console.log(store.getState()));
+}
 ReactDOM.render(
     <HashRouter>
         <Provider store={store}>

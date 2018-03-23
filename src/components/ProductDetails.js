@@ -1,32 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addToCart } from "../actions/actions";
-import { getBook } from "../fakeApi";
+import { addToCart, getBook } from "../actions/actions";
 
 class ProductDetails extends React.Component {
     constructor() {
         super();
         this.state = {
-            book: null
+            isFetching: true
         };
     }
     componentDidMount() {
-        getBook(`/book/${this.props.match.params.id}`).then( resp =>
-            this.setState({book: resp})
-        );
+        this.props.getBook(`${this.props.match.params.id}`)
+            .then(resp => this.setState({book: resp, isFetching: false}))
+            .catch(error => error.response.status === 404
+                ? this.setState({error:{message:"Такої книги не знайдено :("}, isFetching: false})
+                : this.setState({error, isFetching: false})
+            );
     }
     
     componentWillReceiveProps(nextProps) {
-        this.setState({book: null});
-        getBook(`/book/${nextProps.match.params.id}`).then( resp =>
-            this.setState({book: resp})
-        );
+        this.setState({isFetching: true});
+        this.props.getBook(`${nextProps.match.params.id}`)
+            .then( resp =>this.setState({book: resp, isFetching: false}))
+            .catch(error => error.response.status === 404
+                ? this.setState({error:{message:"Такої книги не знайдено :("}, isFetching: false})
+                : this.setState({error, isFetching: false})
+            );
     }
 
     render() {
-        if (!this.state.book) {
+        if (this.state.isFetching) {
             return <div className="animate"><img className="animation" src="static/img/book_icon.svg" alt="Loading..." /></div>;
+        }
+        if (this.state.error) {
+            return <div>{this.state.error.message}</div>
         }
         let { book } = this.state;
         return (
@@ -60,9 +68,16 @@ class ProductDetails extends React.Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        book: state.products.items.find(book=> book.id === ownProps.match.params.id)
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
-        onBuyHandle: (product,set_quantity=1) => dispatch(addToCart(product, set_quantity))
+        onBuyHandle: (product,set_quantity=1) => dispatch(addToCart(product, set_quantity)),
+        getBook: id => dispatch(getBook(id)),
     }
 };
 

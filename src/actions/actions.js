@@ -1,5 +1,5 @@
-import * as api from "../fakeApi";
-import { PRODUCTS } from "../constants";
+// import { PRODUCTS } from "../constants";
+import axios from "axios";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -58,14 +58,29 @@ export function getVisibleProducts(products, filter) {
 export function getProducts() {
     return dispatch => {
         dispatch({type: FETCH_PRODUCTS_REQUEST});
-        api.getProducts("/books").then( response => 
-            dispatch({type: FETCH_PRODUCTS_RECIEVED, products: response})
-        ).catch(err => { return dispatch => {
-            dispatch({type: FETCH_PRODUCTS_ERROR, error: err});
-            setTimeout(() => {
-                dispatch(msgDismiss());
-            }, 5000);
-        }
-        });
+        axios.get("https://5ab100c094d4f40014f429fb.mockapi.io/api/v1/books")
+            .then( response => 
+                dispatch({type: FETCH_PRODUCTS_RECIEVED, products: response.data})
+            ).catch(error => { return dispatch => {
+                dispatch({type: FETCH_PRODUCTS_ERROR, error});
+                setTimeout(() => {
+                    dispatch(msgDismiss());
+                }, 5000);
+            }
+            });
     };
+}
+
+export function getBook(id) {
+    return dispatch => {
+        return axios.get(`https://5ab100c094d4f40014f429fb.mockapi.io/api/v1/books/${id}`)
+            .then(resp => resp.data);
+    }
+} 
+
+export function getGenres() {
+    return dispatch => {
+        return axios.get('https://5ab100c094d4f40014f429fb.mockapi.io/api/v1/genres')
+            .then(r => dispatch({type:"GET_GENRES", genres: r.data}));
+    }
 }

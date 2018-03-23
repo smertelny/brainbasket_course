@@ -10,7 +10,7 @@ export default function products(state={
     case "FETCH_PRODUCTS_RECIEVED":
         return {isFetching: false, items: action.products};
     case "FETCH_PRODUCTS_ERROR":
-        return {isFetching: false, items: []}
+        return {isFetching: false, items: state.items}
     default:
         return state;
     }
