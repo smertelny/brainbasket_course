@@ -68,9 +68,13 @@
 } */
 
 .cart__product button {
-    /* padding: .1875rem; */
-    width: 1.1rem;
-    height: 1.1rem;
+    padding: .375rem .75rem;
+    border: none;
+    border-radius: .3125rem;
+}
+
+.cart__product button:hover {
+    background: #9f9f9f;
 }
 
 .cart__quantity {
