@@ -187,13 +187,21 @@ td a {
 }
 
 @media screen and (max-width: 1200px) {
+    .cart-visible {
+        width: 50%;
+    }
+
+    .cart-visible .product-card {
+        width:98%;
+    }
+
     .products {
         justify-content: space-around;
     }
+
     .product-card {
         width: 47%;
     }
-    
 }
 
 @media screen and (max-width: 768px) {

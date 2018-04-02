@@ -61,12 +61,6 @@
     float: right;
 }
 
-/* .cart__product button {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-} */
-
 .cart__product button {
     padding: .375rem .75rem;
     border: none;
@@ -118,4 +112,25 @@
 .cart__buy:disabled,
 .cart__clear:disabled {
     opacity: .65;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .cart {
+        width: 50%;
+    }
+
+    .cart.hidden {
+        right: -50%
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cart {
+        width: 100%;
+    }
+
+    .cart.hidden {
+        right: -100%
+    }
 }

@@ -26,8 +26,11 @@ body {
 }
 
 .main-menu {
+    position: fixed;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
+    z-index: 2;
 }
 
 .main-menu .left {
@@ -98,6 +101,7 @@ body {
 .wrapper {
     flex-basis: 80%;
     margin: 0 auto;
+    padding-top: 3rem;
 }
 
 .product::after,
@@ -234,4 +238,7 @@ body {
       padding-left: 20px;
     }
 
+    .wrapper {
+        padding-top: 6.5rem;
+    }
 }
