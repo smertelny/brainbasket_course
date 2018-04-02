@@ -22,6 +22,7 @@ store.subscribe(() => setLocalData(store.getState()));
 if (process.env.NODE_ENV !== 'production') {
     store.subscribe(() => console.log(store.getState()));
 }
+
 ReactDOM.render(
     <HashRouter>
         <Provider store={store}>
@@ -30,6 +31,12 @@ ReactDOM.render(
     </HashRouter>, 
     document.getElementById("root")
 );
+
+document.addEventListener('keydown', e => {
+    if (store.getState().cart.visible && e.keyCode === 27) {
+        store.dispatch({type: "CHANGE_CART_VISIBILITY"})
+    }
+});
 
 if (module.hot) {
     module.hot.accept("./components/App", () => {
